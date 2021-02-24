@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'aws-task'}
+   agent any
    stages {
     stage('Code Checkout') {
       steps {
