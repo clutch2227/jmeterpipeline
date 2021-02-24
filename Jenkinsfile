@@ -1,7 +1,7 @@
 pipeline {
-   agent any
+   agent { label 'aws-task'}
    stages {
-    stage('Checkout Code') {
+    stage('Code Checkout') {
       steps {
         script {
            // The below will clone your repo and will be checked out to master branch by default.
@@ -11,7 +11,7 @@ pipeline {
           }
        }
     }
-    stage('Run Performance Test') {
+    stage('JMeter Performance Test') {
       steps {
        dir('/var/jenkins_home/workspace/Jmeter/bin'){
         script {
