@@ -1,11 +1,12 @@
 pipeline {
    agent any
    stages {
-    stage('Code Checkout') {
+    stage('Download JMeter & Plugins') {
       steps {
         script {
            // The below will clone your repo and will be checked out to master branch by default.
-           git credentialsId: 'Git', url: 'https://github.com/clutch2227/JMeter.git'
+           sh "curl https://mirrors.ocf.berkeley.edu/apache//jmeter/binaries/apache-jmeter-5.4.1.tgz"
+           sh "tar -xvzf apache-jmeter-5.4.1/bin"
            // Checkout to a specific branch in your repo.
            sh "git checkout master"
           }
