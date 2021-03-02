@@ -17,11 +17,11 @@ pipeline {
         script {
             sh "echo jmeter.save.saveservice.output_format=xml >> user.properties"
             //sh "cat user.properties"
-            sh "./jmeter.sh -n -t test_scripts/Sample_Test.jmx -l test_result.jtl"
-            perfReport 'test_result.jtl'
+            sh "./jmeter.sh -n -t test_scripts/Sample_Test.jmx -l test_result.csv"
+            perfReport 'test_result.csv'
           }
        }
-       step([$class: 'ArtifactArchiver', artifacts: '**/test_result.jtl'])
+       step([$class: 'ArtifactArchiver', artifacts: '**/test_result.csv'])
       }
 }
 }
